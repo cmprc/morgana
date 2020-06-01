@@ -1,0 +1,83 @@
+<?php
+
+class Objeto
+{
+	public static function getLastRegister($params = array())
+	{
+		$options = array(
+			'id' => FALSE
+		);
+		$params = array_merge($options, $params);
+
+		$link = mysqli_connect("localhost", "root", "", "admin");
+		$tabela = get_called_class()::$tabela;
+
+		if($params['id']){
+			$sql = "SELECT MAX(id) FROM " . $tabela;
+		} else {
+			$sql = "SELECT * FROM " . $tabela . " ORDER BY id DESC";
+			return mysqli_fetch_assoc(mysqli_query($link, $sql));
+		}
+
+		return mysqli_fetch_row(mysqli_query($link, $sql));
+	}
+
+	public static function getAll($condicao = "", $result = FALSE, $count = FALSE)
+	{
+		include("util/conexao.php");
+
+		$tabela = get_called_class()::$tabela;
+
+		if ($count)
+			$sql = "SELECT COUNT(id) as total FROM " . $tabela . $condicao;
+		else
+			$sql = "SELECT * FROM " . $tabela . $condicao;
+
+		$resultado = mysqli_query($link, $sql);
+
+		if ($result)
+			return $resultado;
+		else
+			return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+	}
+
+	public function getSum($column, $condicao = "")
+	{
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+
+		$sql = "SELECT SUM(".$column.") as total FROM " . $tabela . $condicao;
+
+		$resultado = mysqli_query($link, $sql);
+		return mysqli_fetch_row($resultado);
+	}
+
+	public function getOne($id)
+	{
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "SELECT * FROM " . $tabela . " WHERE id = " . $id;
+		return mysqli_fetch_assoc(mysqli_query($link, $sql));
+	}
+
+	public function limita_caracteres($texto, $limite, $quebra = true)
+	{
+		$tamanho = strlen($texto);
+		if ($tamanho <= $limite) {
+			$novo_texto = $texto;
+		} else {
+			if ($quebra == true) {
+				$novo_texto = trim(substr($texto, 0, $limite)) . "...";
+			} else {
+				$ultimo_espaco = strrpos(substr($texto, 0, $limite), " ");
+				$novo_texto = trim(substr($texto, 0, $ultimo_espaco)) . "...";
+			}
+		}
+		return $novo_texto;
+	}
+
+	public function get($nome)
+	{
+		return get_called_class()->{$nome};
+	}
+}

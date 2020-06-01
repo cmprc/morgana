@@ -1,0 +1,47 @@
+<?php
+
+class Objeto
+{
+
+	public static function getLastRegister()
+	{
+		$link = mysqli_connect("localhost", "root", "", "admin");
+		$tabela = get_called_class()::$tabela;
+		$sql = "SELECT MAX(id) FROM " . $tabela;
+		return mysqli_fetch_row(mysqli_query($link, $sql));
+	}
+
+	public static function getAll($condicao = "", $result = FALSE, $count = FALSE)
+	{
+		include("util/conexao.php");
+
+		$tabela = get_called_class()::$tabela;
+
+		if ($count) {
+			$sql = "SELECT COUNT(id) as total FROM " . $tabela . $condicao;
+		} else {
+			$sql = "SELECT * FROM " . $tabela . $condicao;
+		}
+
+		$resultado = mysqli_query($link, $sql);
+
+		if ($result) {
+			return $resultado;
+		} else {
+			return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+		}
+	}
+
+	public function getOne($id)
+	{
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "SELECT * FROM " . $tabela . " WHERE id = " . $id;
+		return mysqli_fetch_assoc(mysqli_query($link, $sql));
+	}
+
+	public function get($nome)
+	{
+		return get_called_class()->{$nome};
+	}
+}

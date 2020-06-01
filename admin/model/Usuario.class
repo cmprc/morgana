@@ -1,0 +1,61 @@
+<?php 
+
+include_once('Objeto.class');
+
+class Usuario extends Objeto{ 
+	public $id;
+	public $senha;
+	public $email;
+	public $nome;
+	public $nivel;
+
+	public static $tabela = "usuarios";
+
+	public function __construct($id=null, $nome, $email="", $senha, $nivel){
+		$this->id = $id;
+		$this->senha = $senha;
+		$this->email = $email;
+		$this->nome = $nome;
+		$this->nivel = $nivel;
+	}
+
+	public static function fullName($nivel=2){
+		$nivel = intval($nivel);
+		switch ($nivel) {
+			case 1:
+			return 'Administrador(a)';
+			break;
+
+			case 2:
+			return 'Funcionário(a)';
+			break;
+			
+			default:
+			return 'Funcionário(a)';
+			break;
+		}
+	}
+
+	public function insert(){
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "INSERT INTO ".$tabela." VALUES(null, '$this->nome', '$this->email', '$this->senha', $this->nivel)";
+		return mysqli_query($link, $sql);
+	}
+
+	public function update(){
+		include("util/conexao.php"); // resolver isso
+		$tabela = get_called_class()::$tabela;
+		$sql = "UPDATE " . $tabela . " SET nome = '$this->nome', email = '$this->email', senha = '$this->senha', nivel = $this->nivel WHERE id = $this->id";
+		return mysqli_query($link, $sql);
+	}
+
+	public function delete($id){
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "DELETE FROM " . $tabela . " WHERE id = ". $id;
+		return mysqli_query($link, $sql);
+	}
+
+} 
+?> 

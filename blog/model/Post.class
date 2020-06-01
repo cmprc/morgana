@@ -1,0 +1,22 @@
+<?php
+
+include_once('Objeto.class');
+
+class Post extends Objeto{ 
+	public $id;
+	public $titulo;
+	public $corpo;
+	public $autor;
+	public $data;
+
+	public static $tabela = 'posts';
+
+	public function addInteraction($id, $type="views"){
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "UPDATE " . $tabela . " SET $type = $type + 1 WHERE id = $id";
+		return mysqli_query($link, $sql);
+	}
+
+} 
+?> 

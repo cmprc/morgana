@@ -1,0 +1,46 @@
+<?php
+
+include_once('Objeto.class');
+
+class Post extends Objeto{ 
+	public $id;
+	public $titulo;
+	public $corpo;
+	public $autor;
+	public $data;
+	public $views;
+	public $likes;
+
+	public static $tabela = 'posts';
+
+	public function __construct($id=null, $titulo="", $corpo="", $data=null, $autor="", $views="", $likes=""){
+		$this->id = $id;
+		$this->titulo = $titulo;
+		$this->corpo = $corpo;
+		$this->autor = $autor;
+		$this->data = $data;
+	}
+
+	public function insert(){
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "INSERT INTO ".$tabela." VALUES(null, '$this->titulo', '".addslashes($this->corpo)."', '$this->autor', now(), 0, 0)";
+		return mysqli_query($link, $sql) or die(mysqli_error($link));
+	}
+
+	public function update(){
+		include("util/conexao.php"); // resolver isso
+		$tabela = get_called_class()::$tabela;
+		$sql = "UPDATE " . $tabela . " SET titulo = '$this->titulo', corpo = '".addslashes($this->corpo)."' WHERE id = $this->id";
+		return mysqli_query($link, $sql);
+	}
+
+	public function delete($id){
+		include("util/conexao.php");
+		$tabela = get_called_class()::$tabela;
+		$sql = "DELETE FROM " . $tabela . " WHERE id = ". $id;
+		return mysqli_query($link, $sql);
+	}
+
+} 
+?> 
