@@ -9,7 +9,7 @@ class Objeto
 		);
 		$params = array_merge($options, $params);
 
-		$link = mysqli_connect("localhost", "root", "", "admin");
+		$link = mysqli_connect("localhost", "root", "", "morgana");
 		$tabela = get_called_class()::$tabela;
 
 		if($params['id']){

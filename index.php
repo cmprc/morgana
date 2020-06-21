@@ -1,4 +1,5 @@
 <?php
+define('URL_BASE', 'https://www.morganaburatti.com.br/');
 include_once('admin/model/Post.class');
 
 // posts
@@ -9,7 +10,6 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
 <html class="no-js" lang="en">
 
 <head>
-    <!-- title -->
     <title>Morgana Buratti</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,6 +17,13 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
     <meta name="author" content="Morgana Buratti">
     <meta name="description" content="Eu sou a Morgana Burrati e este é o meu espaço virtual. Aqui eu explico de forma sucinta as áreas em que atuo e falo um pouco sobre minha formação e experiêcia no universo da psicologia.">
     <meta name="keywords" content="psicologia, organizacional, atendimento, tratamento, clinica, avaliacao">
+
+    <meta property="og:title" content="Morgana Buratti - Website" />
+    <meta property="og:description" content="Eu sou a Morgana Burrati e este é o meu espaço virtual.">
+    <meta property="og:image:secure_url" content="<?= URL_BASE . 'assets/images/logos/link.jpg'; ?>">
+    <meta property="og:image" content="<?= URL_BASE . 'assets/images/logos/link.jpg'; ?>">
+    <meta property="og:type" content="website" />
+
 
     <link rel="shortcut icon" href="assets/images/fav/favicon.png">
     <link rel="stylesheet" href="assets/css/animate.css" />
@@ -27,28 +34,41 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/justified-gallery.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css" />
-    <link rel="stylesheet" type="text/css" href="assets/revolution/css/settings.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="assets/revolution/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="assets/revolution/css/navigation.css">
     <link rel="stylesheet" href="assets/css/bootsnav.css">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
-    <!--[if IE]>
-            <script src="js/html5shiv.js"></script>
-        <![endif]-->
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MC5HHZH');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC5HHZH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="wrapper">
         <nav class="navbar no-margin-bottom bootsnav alt-font bg-white sidebar-nav sidebar-nav-style-1">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="col-md-12 col-sm-12 col-xs-12 sidenav-header">
-                <!-- start logo -->
                 <div class="logo-holder" style="min-height: 88px">
                     <a href="./" class="logo"><img alt="Morgana Buratti" title="Morgana Buratti" src="assets/images/logos/logo.png"></a>
                 </div>
-                <!-- end logo -->
                 <button class="navbar-toggle mobile-toggle" type="button" id="mobileToggleSidenav">
                     <span></span>
                     <span></span>
@@ -66,10 +86,10 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                         <li><a href="blog/" target="_blank" class="inner-link" style="border-bottom: 0px!important">Blog</a></li>
                     </ul>
                 </div>
-                <div class="padding-45px-lr padding-40px-tb md-no-padding-lr text-left">
+                <div class="padding-45px-lr padding-20px-tb md-no-padding-lr text-left">
                     <div class="border-all padding-10px-all">
                         <p class="text-medium-gray text-small font-weight-500 line-height-20 margin-15px-bottom">Rua Júlio de Castilhos, 734 <br> Centro - Farroupilha / RS</p>
-                        <p class="text-medium-gray text-small font-weight-500 no-margin-bottom">(54) 99673.2039</p>
+                        <p class="text-medium-gray text-small font-weight-500 no-margin-bottom"><a class="text-medium-gray" href="https://api.whatsapp.com/send?l=pt_BR&phone=+5554996732039" target="_blank">(54) 99673.2039</a></p>
                     </div>
                 </div>
             </div>
@@ -77,8 +97,8 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                 <div class="footer-holder">
                     <div class="social-icon-style-8 text-center border-top border-color-extra-light-gray padding-15px-top xs-padding-15px-top">
                         <ul class="small-icon no-margin-bottom">
-                            <li><a href="https://www.facebook.com/" target="_blank" class="text-uppercase text-extra-dark-gray" style="font-size: 10px">Facebook</a></li>
-                            <li><a href="https://instagram.com/" target="_blank" class="text-uppercase text-extra-dark-gray" style="font-size: 10px">Instagram</a></li>
+                            <li><a href="https://pt-br.facebook.com/psicologamorganaburatti/" target="_blank" class="text-uppercase text-extra-dark-gray" style="font-size: 10px">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/morganaburatti/" target="_blank" class="text-uppercase text-extra-dark-gray" style="font-size: 10px">Instagram</a></li>
                         </ul>
                     </div>
                 </div>
@@ -164,7 +184,7 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                 <div class="container-fluid wow fadeIn">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center">
-                            <img src="assets/images/14.jpg" alt="" />
+                            <img src="assets/images/23.jpg" alt="Psicologia" />
                         </div>
                     </div>
                 </div>
@@ -233,7 +253,6 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                                 <li>Avaliação da personalidade em crianças, adolescentes e adultos</li>
                                 <li>Avaliação para orientação profissional e redirecionamento de carreira</li>
                             </ul>
-                            <!-- <a href="index.html" class="btn btn-dark-gray btn-medium margin-10px-top">Launch Website</a> -->
                         </div>
                     </div>
                 </div>
@@ -243,42 +262,11 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                 <div class="container-fluid no-padding">
                     <div class="row no-margin">
                         <div class="col-md-6 no-padding wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                            <img src="assets/images/4.jpg" class="width-100" alt="Imagem ilustrativa" data-no-retina="">
+                            <img src="assets/images/4.jpg" class="width-100" alt="Imagem ilustrativa">
                         </div>
                         <div class="col-md-6 no-padding wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                            <img src="assets/images/21.jpg" class="width-100" alt="Imagem ilustrativa 2" data-no-retina="">
+                            <img src="assets/images/21.jpg" class="width-100" alt="Imagem ilustrativa 2">
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;" id="metodologia">
-                <div class="container">
-                    <div class="row padding-six-lr">
-                        <!-- start feature box item -->
-                        <div class="col-md-4  col-sm-4 col-xs-12 sm-margin-40px-bottom xs-text-center wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
-                            <h5 class="text-light-gray font-weight-300 alt-font no-margin-bottom">01</h5>
-                            <span class="text-extra-dark-gray alt-font text-large margin-15px-bottom display-block sm-margin-5px-bottom">Lead with why</span>
-                            <p class="width-90 sm-width-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been standard dummy text ever since. Lorem Ipsum been the industry. Lorem Ipsum has been.</p>
-                            <div class="separator-line-horrizontal-medium-light3 bg-chocolate width-50px xs-center-col"></div>
-                        </div>
-                        <!-- end feature box item -->
-                        <!-- start feature box item -->
-                        <div class="col-md-4  col-sm-4 col-xs-12 sm-margin-40px-bottom xs-text-center wow fadeInRight" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;">
-                            <h5 class="text-light-gray font-weight-300 alt-font no-margin-bottom">02</h5>
-                            <span class="text-extra-dark-gray alt-font text-large margin-15px-bottom display-block sm-margin-5px-bottom">Less but better</span>
-                            <p class="width-90 sm-width-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been standard dummy text ever since. Lorem Ipsum been the industry. Lorem Ipsum has been.</p>
-                            <div class="separator-line-horrizontal-medium-light3 bg-chocolate width-50px xs-center-col"></div>
-                        </div>
-                        <!-- end feature box item -->
-                        <!-- start feature box item -->
-                        <div class="col-md-4  col-sm-4 col-xs-12 sm-margin-40px-bottom xs-text-center wow fadeInRight" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInRight;">
-                            <h5 class="text-light-gray font-weight-300 alt-font no-margin-bottom">03</h5>
-                            <span class="text-extra-dark-gray alt-font text-large margin-15px-bottom display-block sm-margin-5px-bottom">Human centered</span>
-                            <p class="width-90 sm-width-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been standard dummy text ever since. Lorem Ipsum been the industry. Lorem Ipsum has been.</p>
-                            <div class="separator-line-horrizontal-medium-light3 bg-chocolate width-50px xs-center-col"></div>
-                        </div>
-                        <!-- end feature box item -->
                     </div>
                 </div>
             </section>
@@ -298,22 +286,21 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
             <section class="wow fadeIn bg-light-gray" style="visibility: visible; animation-name: fadeIn;" id="sobre">
                 <div class="container">
                     <div class="row equalize md-equalize-auto">
-                        <div class="col-lg-3 col-md-6 col-sm-6 text-center display-table xs-margin-15px-bottom wow fadeIn" style="visibility: visible; animation-name: fadeIn; height: 398px;">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-lg-offset-1 text-center display-table xs-margin-15px-bottom wow fadeIn" style="visibility: visible; animation-name: fadeIn; height: 300px;">
                             <div class="display-table-cell vertical-align-middle">
-                                <img src="assets/images/18.jpg" alt="" class="width-100" data-no-retina="">
+                                <img src="assets/images/18.jpg" alt="Morgana" class="width-100">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 text-center display-table wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn; height: 398px;">
-                            <div class="display-table-cell vertical-align-middle">
-                                <img src="assets/images/17.jpg" alt="" class="width-100" data-no-retina="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 no-padding display-table md-margin-five-top sm-text-center xs-no-margin-top wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn; height: 398px;">
+                        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 no-padding display-table md-margin-five-top sm-text-center xs-no-margin-top wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn; height: 398px;">
                             <div class="display-table-cell vertical-align-middle padding-twelve-lr md-padding-15px-lr xs-text-center xs-padding-five-lr xs-padding-ten-top width-100">
                                 <h4 class="font-weight-600 alt-font text-extra-dark-gray letter-spacing-minus-1">Profissional</h4>
                                 <p class="text-extra-large alt-font font-weight-400">CRP 07/24616</p>
-                                <p>Mestranda em Psicologia/UCS. Especialista em Terapia Cognitivo Comportamental pela Capacitar/UNIFIA (2017). Graduada em Psicologia pela FSG - Faculdade da Serra Gaúcha (2014). Ênfase em Psicologia Organizacional e do Trabalho. Atualmente atua como Psicóloga Organizacional e Clínica.</p>
-                                <a href="about-us-modern.html" class="btn btn-small btn-dark-gray">+ Informações</a>
+                                <p>Mestranda em Psicologia/UCS. <br>
+                                    Especialista em Terapia Cognitivo Comportamental pela Capacitar/UNIFIA (2017). </br>
+                                    Graduada em Psicologia pela FSG - Faculdade da Serra Gaúcha (2014).<br>
+                                    Ênfase em Psicologia Organizacional e do Trabalho. <br>
+                                    Atualmente atua como Psicóloga Organizacional e Clínica.</p>
+                                <a href="https://www.linkedin.com/in/morgana-buratti-ba282328/" target="_blank" class="btn btn-small btn-dark-gray">+ Informações</a>
                             </div>
                         </div>
                     </div>
@@ -323,11 +310,10 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
             <section class="border-none no-padding wow fadeIn faq" style="visibility: visible; animation-name: fadeIn;">
                 <div class="container-fluid">
                     <div class="row equalize sm-equalize-auto">
-                        <div class="col-md-12 col-sm-12 col-xs-12 display-table wow fadeIn" style="visibility: visible; animation-name: fadeIn; height: 668px;">
+                        <div class="col-md-12 col-sm-12 col-xs-12 display-table wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
                             <div class="display-table-cell-vertical-middle padding-thirteen-lr padding-nine-tb md-padding-ten-all sm-padding-six-all xs-padding-50px-tb xs-no-padding-lr">
                                 <h5 class="alt-font text-extra-dark-gray text-center margin-eight-bottom font-weight-600"><span class="font-weight-300 display-block xs-margin-three-bottom">Alguma dúvida?</span> Será um prazer esclarecê-la</h5>
                                 <div class="panel-group accordion-style1" id="accordion-design">
-                                    <!-- start accordion item -->
                                     <div class="panel">
                                         <div class="panel-heading">
                                             <a data-toggle="collapse" data-parent="#accordion-design" href="#design1" class="collapsed" aria-expanded="false">
@@ -340,8 +326,6 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end accordion item -->
-                                    <!-- start accordion item -->
                                     <div class="panel">
                                         <div class="panel-heading">
                                             <a data-toggle="collapse" data-parent="#accordion-design" href="#design2" class="collapsed" aria-expanded="false">
@@ -360,8 +344,6 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end accordion item -->
-                                    <!-- start accordion item -->
                                     <div class="panel">
                                         <div class="panel-heading">
                                             <a data-toggle="collapse" data-parent="#accordion-design" href="#design3" class="collapsed" aria-expanded="false">
@@ -380,7 +362,6 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end accordion item -->
                                 </div>
                             </div>
                         </div>
@@ -399,25 +380,21 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                         </div>
                         <div class="row equalize xs-equalize-auto padding-six-lr">
                             <?php foreach ($posts as $post) { ?>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 wow fadeInUp sm-padding-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 500px;">
+                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 wow fadeInUp sm-padding-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp;">
                                     <div class="blog-post bg-light-gray inner-match-height">
-                                        <!-- <div class="blog-post-images overflow-hidden position-relative">
-                                        <a href="https://www.themezaa.com/html/pofo/blog-masonry.html" target="_blank">
-                                            <img src="assets/images/backgrounds/header1.jpg" alt="" data-no-retina="">
-                                            <div class="blog-hover-icon"><span class="text-extra-large font-weight-300">+</span></div>
-                                        </a>
-                                    </div> -->
                                         <div class="post-details padding-40px-all sm-padding-20px-all">
-                                            <a href="<?= 'blog/post.php?id=' . $post['id']; ?>" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom">
-                                                <?= Post::limita_caracteres($post['titulo'], 30); ?>
+                                            <a href="<?= 'blog/post.php?id=' . $post['id']; ?>" target="_blank">
+                                                <span class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom">
+                                                    <?= Post::limita_caracteres($post['titulo'], 30); ?>
+                                                </span>
+                                                <p>
+                                                    <?= Post::limita_caracteres(strip_tags($post['corpo']), 100); ?>
+                                                </p>
                                             </a>
-                                            <p>
-                                                <?= Post::limita_caracteres(strip_tags($post['corpo']), 100); ?>
-                                            </p>
                                             <div class="separator-line-horrizontal-full bg-medium-gray margin-20px-tb sm-margin-15px-tb"></div>
                                             <div class="author">
                                                 <span class="text-medium-gray text-uppercase text-extra-small display-inline-block sm-display-block sm-margin-10px-top">por
-                                                    <a href="https://www.themezaa.com/html/pofo/blog-masonry.html" target="_blank" class="text-medium-gray"><?= $post['autor']; ?></a>
+                                                    <span class="text-medium-gray"><?= $post['autor']; ?></span>
                                                     &nbsp;&nbsp;|&nbsp;&nbsp;
                                                     <?php
                                                     $data_formatada = new DateTime($post['data']);
@@ -434,33 +411,22 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                 </section>
             <?php } ?>
 
-            <section id="contato" class="wow fadeIn border-bottom border-color-extra-light-gray" style="visibility: visible; animation-name: fadeIn;">
+            <section id="contato" class="wow fadeIn border-top border-color-extra-light-gray" style="visibility: visible; animation-name: fadeIn;">
                 <div class="container">
                     <div class="row sm-col-2-nth">
-                        <!-- start features box item -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 text-center sm-margin-50px-bottom xs-margin-30px-bottom wow fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-center sm-margin-50px-bottom xs-margin-30px-bottom wow fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp;">
                             <i class="icon-map-pin icon-medium margin-25px-bottom xs-margin-10px-bottom"></i>
                             <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">Venha nos visitar</div>
                             <p class="width-70 md-width-85 sm-width-50 xs-width-60 xs-margin-10px-bottom center-col">Rua Júlio de Castilhos, 734 <br> Centro - Farroupilha / RS</p>
                             <a href="https://www.google.com/maps/place/Psic%C3%B3loga+Morgana+Buratti/@-29.2297767,-51.3450981,15z/data=!4m5!3m4!1s0x0:0x2f986111f542d709!8m2!3d-29.2297767!4d-51.3450981" class="margin-15px-top text-decoration-line-through-deep-pink display-inline-block text-uppercase text-chocolate text-small xs-no-margin-top" target="_blank">Visualizar</a>
                         </div>
-                        <!-- end features box item -->
-                        <!-- start features box item -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 text-center sm-margin-50px-bottom xs-margin-30px-bottom wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-center sm-margin-50px-bottom xs-margin-30px-bottom wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                             <i class="icon-chat icon-medium margin-25px-bottom xs-margin-10px-bottom"></i>
                             <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">Contatos</div>
-                            <p class="width-70 md-width-85 sm-width-50 xs-width-60 xs-margin-10px-bottom center-col"><a href="https://api.whatsapp.com/send?l=pt_BR&phone=54996732039" target="_blank">Whatsapp: (54) 99673.2039</a> <br> <a href="tel:54996732039"> Telefone: (54) 99673-2039 </a> </p>
+                            <p class="width-70 md-width-85 sm-width-50 xs-width-60 xs-margin-10px-bottom center-col">Whatsapp: <a href="https://api.whatsapp.com/send?l=pt_BR&phone=+5554996732039" target="_blank">(54) 99673.2039</a> <br>
+                                <a href="mailto:selecao@morganaburatti.com.br">selecao@morganaburatti.com.br</a> </p>
                             <a href="tel:54996732039" class="margin-15px-top text-decoration-line-through-deep-pink display-inline-block text-uppercase text-chocolate text-small xs-no-margin-top">Ligar</a>
                         </div>
-                        <!-- end features box item -->
-                        <!-- start features box item -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 text-center xs-margin-30px-bottom wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                            <i class="icon-envelope icon-medium margin-25px-bottom xs-margin-10px-bottom"></i>
-                            <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">Emails</div>
-                            <p class="width-70 md-width-85 sm-width-50 xs-width-60 xs-margin-10px-bottom center-col"><a href="mailto:selecao@morganaburatti.com.br">selecao@morganaburatti.com.br</a><br><a href="vagas@morganaburatti.com.br">vagas@morganaburatti.com.br</a></p>
-                            <a href="mailto:vagas@morganaburatti.com.br" class="margin-15px-top text-decoration-line-through-deep-pink display-inline-block text-uppercase text-chocolate text-small xs-no-margin-top">Escrever</a>
-                        </div>
-                        <!-- end features box item -->
                     </div>
                 </div>
             </section>
@@ -468,72 +434,44 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
             <footer class="footer-center-logo bg-light-gray padding-five-tb xs-padding-30px-tb">
                 <div class="container">
                     <div class="row equalize xs-equalize-auto">
-                        <!-- start copyright -->
                         <div class="col-md-4 col-sm-5 col-xs-12 text-small text-center alt-font display-table xs-text-center xs-margin-15px-bottom">
                             <div class="display-table-cell vertical-align-middle">
-                                &COPY; 2019 Morgana Buratti
+                                &COPY; 2020 Morgana Buratti
                             </div>
                         </div>
-                        <!-- end copyright -->
-                        <!-- start logo -->
                         <div class="col-md-4 col-sm-2 col-xs-12 text-center display-table xs-margin-10px-bottom">
                             <div class="display-table-cell vertical-align-middle">
                                 <a href="./"><img class="footer-logo" src="assets/images/logos/logo.png" alt="Morgana Buratti" style="min-height: 35px"></a>
                             </div>
                         </div>
-                        <!-- end logo -->
-                        <!-- start social media -->
                         <div class="col-md-4 col-sm-5 col-xs-12 text-center display-table xs-text-center">
                             <div class="display-table-cell vertical-align-middle">
-                                <!-- <span class="alt-font text-small margin-20px-right">Mídias sociais</span> -->
+                                <span class="alt-font text-small margin-20px-right">Mídias sociais</span>
                                 <div class="social-icon-style-8 display-inline-block vertical-align-middle">
                                     <ul class="small-icon no-margin-bottom">
-                                        <li><a class="facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a class="linkedin" href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a class="instagram" href="https://instagram.com/" target="_blank"><i class="fa fa-instagram no-margin-right" aria-hidden="true"></i></a></li>
+                                        <li><a class="facebook" href="https://pt-br.facebook.com/psicologamorganaburatti/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a class="linkedin" href="https://www.linkedin.com/in/morgana-buratti-ba282328/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a class="instagram" href="https://www.instagram.com/morganaburatti/" target="_blank"><i class="fa fa-instagram no-margin-right" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- end social media -->
                     </div>
                 </div>
             </footer>
 
         </div>
-        
+
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
     </div>
 
     <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/js/modernizr.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="assets/js/skrollr.min.js"></script>
     <script type="text/javascript" src="assets/js/smooth-scroll.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.appear.js"></script>
-    <script type="text/javascript" src="assets/js/bootsnav.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.nav.js"></script>
     <script type="text/javascript" src="assets/js/wow.min.js"></script>
-    <script type="text/javascript" src="assets/js/page-scroll.js"></script>
     <script type="text/javascript" src="assets/js/swiper.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.count-to.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.stellar.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script type="text/javascript" src="assets/js/classie.js"></script>
-    <script type="text/javascript" src="assets/js/hamburger-menu.js"></script>
-    <script type="text/javascript" src="assets/js/counter.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="assets/js/equalize.min.js"></script>
-    <script type="text/javascript" src="assets/js/skill.bars.jquery.js"></script>
-    <script type="text/javascript" src="assets/js/justified-gallery.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.easypiechart.min.js"></script>
-    <script type="text/javascript" src="assets/js/instafeed.min.js"></script>
-    <script type="text/javascript" src="assets/js/retina.min.js"></script>
-    <script type="text/javascript" src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
     <script type="text/javascript" src="assets/js/main.js"></script>
 

@@ -28,46 +28,30 @@ $posts = Post::getAll($condition, FALSE, FALSE);
     <link rel="stylesheet" href="../assets/css/bootsnav.css">
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/responsive.css" />
-    <!--[if IE]>
-            <script src="js/html5shiv.js"></script>
-        <![endif]-->
 </head>
 
 <body>
-    <!-- start page title section -->
     <section class="wow fadeIn parallax" data-stellar-background-ratio="0.5" style="background-image:url('../assets/images/19.jpg');">
         <div class="opacity-medium bg-extra-dark-gray"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 extra-small-screen display-table page-title-large" style="height: 100px">
                     <div class="display-table-cell vertical-align-middle text-center">
-                        <!-- start page title -->
                         <h1 class="text-white alt-font font-weight-600 letter-spacing-minus-1 margin-10px-bottom">Blog</h1>
                         <span class="text-white opacity6 alt-font">posts feitos com carinho</span>
-                        <!-- end page title -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- end page title section -->
-    <!-- start post content section -->
     <section id="blog" class="wow fadeIn bg-light-gray half-section last-paragraph-no-margin blog-post-style5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 no-padding xs-padding-15px-lr">
                     <ul class="blog-grid blog-3col gutter-large">
-                        <li class="grid-sizer"></li>
-
                         <?php foreach ($posts as $key => $post) { ?>
                             <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                                 <div class="blog-post">
-                                    <!-- <div class="blog-post-images overflow-hidden">
-                                        <a href="blog-post-layout-01.html">
-                                            <img src="http://placehold.it/900x650" alt="">
-                                        </a>
-                                        <div class="blog-categories bg-white text-uppercase text-extra-small alt-font"><a href="blog-grid.html">Graphic Design</a></div>
-                                    </div> -->
                                     <div class="post-details padding-40px-all bg-white sm-padding-20px-all">
                                         <div class="blog-hover-color"></div>
                                         <a href="<?= 'post.php?id='.$post['id']; ?>" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom">
@@ -75,7 +59,7 @@ $posts = Post::getAll($condition, FALSE, FALSE);
                                         </a>
                                         <div class="author">
                                             <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">por 
-                                                <a href="blog-grid.html" class="text-medium-gray"><?= $post['autor']; ?></a>
+                                                <span class="text-medium-gray"><?= $post['autor']; ?></span>
                                                 &nbsp;&nbsp;|&nbsp;&nbsp;
                                                 <?php
                                                     $data_formatada = new DateTime($post['data']);
@@ -95,7 +79,6 @@ $posts = Post::getAll($condition, FALSE, FALSE);
                     </ul>
                 </div>
             </div>
-            <!-- start pagination -->
             <div class=" text-center margin-100px-top sm-margin-50px-top wow fadeInUp">
                 <div class="pagination text-small text-uppercase text-extra-dark-gray">
                     <ul>
@@ -111,7 +94,6 @@ $posts = Post::getAll($condition, FALSE, FALSE);
                     </ul>
                 </div>
             </div>
-            <!-- end pagination -->
         </div>
     </section>
 
@@ -125,29 +107,17 @@ $posts = Post::getAll($condition, FALSE, FALSE);
         <script type="text/javascript" src="../assets/js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="../assets/js/skrollr.min.js"></script>
         <script type="text/javascript" src="../assets/js/smooth-scroll.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.appear.js"></script>
         <script type="text/javascript" src="../assets/js/bootsnav.js"></script>
         <script type="text/javascript" src="../assets/js/jquery.nav.js"></script>
         <script type="text/javascript" src="../assets/js/wow.min.js"></script>
         <script type="text/javascript" src="../assets/js/page-scroll.js"></script>
         <script type="text/javascript" src="../assets/js/swiper.min.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.count-to.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.stellar.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.magnific-popup.min.js"></script>
-        <script type="text/javascript" src="../assets/js/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="../assets/js/imagesloaded.pkgd.min.js"></script>
         <script type="text/javascript" src="../assets/js/classie.js"></script>
         <script type="text/javascript" src="../assets/js/hamburger-menu.js"></script>
-        <script type="text/javascript" src="../assets/js/counter.js"></script>
         <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
         <script type="text/javascript" src="../assets/js/equalize.min.js"></script>
-        <script type="text/javascript" src="../assets/js/skill.bars.jquery.js"></script> 
         <script type="text/javascript" src="../assets/js/justified-gallery.min.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.easypiechart.min.js"></script>
-        <script type="text/javascript" src="../assets/js/instafeed.min.js"></script>
-        <script type="text/javascript" src="../assets/js/retina.min.js"></script>
-        <script type="text/javascript" src="../assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="../assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="../assets/js/main.js"></script>
 </body>
 

@@ -197,35 +197,6 @@ Search - END CODE
 ==============================================================*/
 
 /*==============================================================
-equalize - START CODE
-==============================================================*/
-function equalizeHeight() {
-    $(document).imagesLoaded(function () {
-        if ($(window).width() < 768) {
-            $('.equalize').equalize({ equalize: 'outerHeight', reset: true });
-            $('.equalize.md-equalize-auto').children().css("height", "");
-            $('.equalize.sm-equalize-auto').children().css("height", "");
-            $('.equalize.xs-equalize-auto').children().css("height", "");
-            return false;
-        } else if ($(window).width() < 992) {
-            $('.equalize').equalize({ equalize: 'outerHeight', reset: true });
-            $('.equalize.md-equalize-auto').children().css("height", "");
-            $('.equalize.sm-equalize-auto').children().css("height", "");
-            return false;
-        } else if ($(window).width() < 1199) {
-            $('.equalize').equalize({ equalize: 'outerHeight', reset: true });
-            $('.equalize.md-equalize-auto').children().css("height", "");
-            return false;
-        } else {
-            $('.equalize').equalize({ equalize: 'outerHeight', reset: true });
-        }
-    });
-}
-/*==============================================================
-equalize - END CODE
-==============================================================*/
-
-/*==============================================================
 dynamic font size START CODE
 ==============================================================*/
 function feature_dynamic_font_line_height() {
@@ -265,18 +236,6 @@ dynamic font size END CODE
 ==============================================================*/
 
 /*==============================================================
-set parallax
-==============================================================*/
-function stellarParallax() {
-    if ($(window).width() > 1024) {
-        $.stellar();
-    } else {
-        $.stellar('destroy');
-        $('.parallax').css('background-position', '');
-    }
-}
-
-/*==============================================================
 full screen START CODE
 ==============================================================*/
 function fullScreenHeight() {
@@ -310,9 +269,7 @@ function SetResizeContent() {
     setPageTitleSpace();
     setButtonPosition();
     parallax_text();
-    stellarParallax();
     fullScreenHeight();
-    equalizeHeight();
 }
 
 /* ===================================
@@ -992,251 +949,6 @@ $(document).ready(function () {
     /*==============================================================*/
 
     /*==============================================================
-    portfolio filter
-    ==============================================================*/
-    var $portfolio_filter = $('.portfolio-grid');
-    $portfolio_filter.imagesLoaded(function () {
-        $portfolio_filter.isotope({
-            layoutMode: 'masonry',
-            itemSelector: '.grid-item',
-            percentPosition: true,
-            masonry: {
-                columnWidth: '.grid-sizer'
-            }
-        });
-        $portfolio_filter.isotope();
-    });
-    var $grid_selectors = $('.portfolio-filter > li > a');
-    $grid_selectors.on('click', function () {
-        $grid_selectors.parent().removeClass('active');
-        $(this).parent().addClass('active');
-        var selector = $(this).attr('data-filter');
-        $portfolio_filter.find('.grid-item').removeClass('animated').css("visibility", ""); // avoid problem to filter after sorting
-        $portfolio_filter.find('.grid-item').each(function () {
-            /* remove perticular element from WOW array when you don't want animation on element after DOM lead */
-            wow.removeBox(this);
-            $(this).css("-webkit-animation", "none");
-            $(this).css("-moz-animation", "none");
-            $(this).css("-ms-animation", "none");
-            $(this).css("animation", "none");
-        });
-        $portfolio_filter.isotope({ filter: selector });
-        return false;
-    });
-    $(window).resize(function () {
-        if (!isMobile && !isiPhoneiPad) {
-            setTimeout(function () {
-                $portfolio_filter.find('.grid-item').removeClass('wow').removeClass('animated'); // avoid problem to filter after window resize
-                $portfolio_filter.isotope('layout');
-            }, 300);
-        }
-    });
-    var $blog_filter = $('.blog-grid');
-    $blog_filter.imagesLoaded(function () {
-        $blog_filter.isotope({
-            layoutMode: 'masonry',
-            itemSelector: '.grid-item',
-            percentPosition: true,
-            masonry: {
-                columnWidth: '.grid-sizer'
-            }
-        });
-    });
-    $(window).resize(function () {
-        setTimeout(function () {
-            $blog_filter.find('.grid-item').removeClass('wow').removeClass('animated'); // avoid problem to filter after window resize
-            $blog_filter.isotope('layout');
-        }, 300);
-    });
-
-    /*==============================================================
-    lightbox gallery
-    ==============================================================*/
-    $('.lightbox-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        tLoading: 'Loading image #%curr%...',
-        mainClass: 'mfp-fade',
-        fixedContentPos: true,
-        closeBtnInside: false,
-        gallery: {
-            enabled: true,
-            navigateByImgClick: true,
-            preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-        }
-    });
-    /* for group gallery */
-    var lightboxgallerygroups = {};
-    $('.lightbox-group-gallery-item').each(function () {
-        var id = $(this).attr('data-group');
-        if (!lightboxgallerygroups[id]) {
-            lightboxgallerygroups[id] = [];
-        }
-        lightboxgallerygroups[id].push(this);
-    });
-    $.each(lightboxgallerygroups, function () {
-        $(this).magnificPopup({
-            type: 'image',
-            closeOnContentClick: true,
-            closeBtnInside: false,
-            gallery: { enabled: true }
-        });
-    });
-
-    $('.lightbox-portfolio').magnificPopup({
-        delegate: '.gallery-link',
-        type: 'image',
-        tLoading: 'Loading image #%curr%...',
-        mainClass: 'mfp-fade',
-        fixedContentPos: true,
-        closeBtnInside: false,
-        gallery: {
-            enabled: true,
-            navigateByImgClick: false,
-            preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-        }
-    });
-    /*==============================================================
-    single image lightbox - zoom animation
-    ==============================================================*/
-    $('.single-image-lightbox').magnificPopup({
-        type: 'image',
-        closeOnContentClick: true,
-        fixedContentPos: true,
-        closeBtnInside: false,
-        mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-        image: {
-            verticalFit: true
-        },
-        zoom: {
-            enabled: true,
-            duration: 300 // don't foget to change the duration also in CSS
-        }
-    });
-    /*==============================================================
-    zoom gallery
-    ==============================================================*/
-    $('.zoom-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        mainClass: 'mfp-with-zoom mfp-img-mobile',
-        fixedContentPos: true,
-        closeBtnInside: false,
-        image: {
-            verticalFit: true,
-            titleSrc: function (item) {
-                return item.el.attr('title');
-            }
-        },
-        gallery: {
-            enabled: true
-        },
-        zoom: {
-            enabled: true,
-            duration: 300, // don't foget to change the duration also in CSS
-            opener: function (element) {
-                return element.find('img');
-            }
-        }
-    });
-    /*==============================================================*/
-    //Modal popup - START CODE
-    /*==============================================================*/
-    $('.modal-popup').magnificPopup({
-        type: 'inline',
-        preloader: false,
-        // modal: true,
-        blackbg: true
-    });
-    $(document).on('click', '.popup-modal-dismiss', function (e) {
-        e.preventDefault();
-        $.magnificPopup.close();
-    });
-    /*==============================================================*/
-    //Modal popup - END CODE
-    /*==============================================================*/
-
-    /*==============================================================*/
-    //Modal popup - zoom animation - START CODE
-    /*==============================================================*/
-    $('.popup-with-zoom-anim').magnificPopup({
-        type: 'inline',
-        fixedContentPos: false,
-        fixedBgPos: true,
-        overflowY: 'auto',
-        closeBtnInside: true,
-        preloader: false,
-        midClick: true,
-        removalDelay: 300,
-        blackbg: true,
-        mainClass: 'my-mfp-zoom-in'
-    });
-
-    $('.popup-with-move-anim').magnificPopup({
-        type: 'inline',
-        fixedContentPos: false,
-        fixedBgPos: true,
-        overflowY: 'auto',
-        closeBtnInside: true,
-        preloader: false,
-        midClick: true,
-        removalDelay: 300,
-        blackbg: true,
-        mainClass: 'my-mfp-slide-bottom'
-    });
-    /*==============================================================*/
-    //Modal popup - zoom animation - END CODE
-    /*==============================================================*/
-
-    /*==============================================================
-    popup with form
-    ==============================================================*/
-    $('.popup-with-form').magnificPopup({
-        type: 'inline',
-        preloader: false,
-        closeBtnInside: false,
-        fixedContentPos: true,
-        focus: '#name',
-        callbacks: {
-            beforeOpen: function () {
-                if ($(window).width() < 700) {
-                    this.st.focus = false;
-                } else {
-                    this.st.focus = '#name';
-                }
-            }
-        }
-    });
-    /*==============================================================
-    video magnific popup
-    ==============================================================*/
-
-    $('.popup-youtube, .popup-vimeo, .popup-googlemap').magnificPopup({
-        disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: true,
-        closeBtnInside: false
-    });
-    /*==============================================================
-    ajax magnific popup for onepage portfolio
-    ==============================================================*/
-    $('.ajax-popup').magnificPopup({
-        type: 'ajax',
-        alignTop: true,
-        fixedContentPos: true,
-        overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
-        callbacks: {
-            open: function () {
-                $('.navbar .collapse').removeClass('in');
-                $('.navbar a.dropdown-toggle').addClass('collapsed');
-            }
-        }
-    });
-
-    /*==============================================================
     mega menu width 
     ===============================================================*/
     $("ul.mega-menu-full").each(function (idx, elm) {
@@ -1249,11 +961,6 @@ $(document).ready(function () {
         $(this).width(megaMenuWidth + 95);
         megaMenuWidth = 0;
     });
-    /*==============================================================
-    fit videos
-    ==============================================================*/
-    $(".fit-videos").fitVids();
-
 
     /*==============================================================
     form to email
@@ -1754,55 +1461,6 @@ $(document).ready(function () {
     instagramfeed end
     ==============================================================*/
 
-    /*==============================================================*/
-    //magnificPopup Start 
-    /*==============================================================*/
-    $('.header-search-form').magnificPopup({
-        mainClass: 'mfp-fade',
-        closeOnBgClick: true,
-        preloader: false,
-        // for white backgriund
-        fixedContentPos: false,
-        closeBtnInside: false,
-        callbacks: {
-            open: function () {
-                setTimeout(function () {
-                    $('.search-input').focus();
-                }, 500);
-                $('#search-header').parent().addClass('search-popup');
-                if (!isMobile) {
-                    $('body').addClass('overflow-hidden');
-                    //$('body').addClass('position-fixed');
-                    $('body').addClass('width-100');
-                    document.onmousewheel = ScrollStop;
-                } else {
-                    $('body, html').on('touchmove', function (e) {
-                        e.preventDefault();
-                    });
-                }
-            },
-            close: function () {
-                if (!isMobile) {
-                    $('body').removeClass('overflow-hidden');
-                    //$('body').removeClass('position-fixed');
-                    $('body').removeClass('width-100');
-                    $('#search-header input[type=text]').each(function (index) {
-                        if (index == 0) {
-                            $(this).val('');
-                            $("#search-header").find("input:eq(" + index + ")").css({ "border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)" });
-                        }
-                    });
-                    document.onmousewheel = ScrollStart;
-                } else {
-                    $('body, html').unbind('touchmove');
-                }
-            }
-        }
-    });
-
-    /*==============================================================*/
-    //magnificPopup End 
-    /*==============================================================*/
     $("input.search-input").on("keypress", function (event) {
         if (event.which == 13 && !isMobile) {
             $("button.search-button").trigger("click");
@@ -2048,7 +1706,7 @@ END READY
 /* ===================================
 START Page Load
 ====================================== */
-$(window).load(function () {
+$(document).ready(function () {
     var hash = window.location.hash.substr(1);
     if (hash != "") {
         setTimeout(function () {

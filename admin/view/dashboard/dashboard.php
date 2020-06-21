@@ -21,13 +21,11 @@ $data = json_encode($data);
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title> Painel de Controle </title>
     <?php include_once('../util/first.php') ?>
-
 </head>
 
 <body>
@@ -99,41 +97,6 @@ $data = json_encode($data);
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5> Modificações </h5>
-                            </div>
-                            <div class="ibox-content">
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Dia</th>
-                                                <th>Horário </th>
-                                                <th>Descrição </th>
-                                                <th>Usuário </th>
-                                                <th>Tipo </th>
-                                                <th>Edição </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>18.05.2019</td>
-                                                <td>22:32</td>
-                                                <td>Modificou post</td>
-                                                <td>Ricardo</td>
-                                                <td>Modificação</td>
-                                                <td> <a href="../posts/post.php?code=12"> Acessar </a> </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -151,7 +114,6 @@ $data = json_encode($data);
 
             Dashboard.set(data);
             Dashboard.init();
-
         });
     </script>
 </body>

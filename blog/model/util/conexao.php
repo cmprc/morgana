@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "u562885007_morganaburatti", "dzJlQX75", "u562885007_site");
+$link = mysqli_connect("localhost", "root", "", "morgana");
  
 if (!$link) {
     echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
