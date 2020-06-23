@@ -286,13 +286,13 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
             <section class="wow fadeIn bg-light-gray" style="visibility: visible; animation-name: fadeIn;" id="sobre">
                 <div class="container">
                     <div class="row equalize md-equalize-auto">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-lg-offset-1 text-center display-table xs-margin-15px-bottom wow fadeIn" style="visibility: visible; animation-name: fadeIn; height: 300px;">
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-md-offset-0 col-lg-offset-1 text-center display-table xs-margin-15px-bottom wow fadeIn" style="visibility: visible; animation-name: fadeIn; height: 300px;">
                             <div class="display-table-cell vertical-align-middle">
-                                <img src="assets/images/18.jpg" alt="Morgana" class="width-100">
+                                <img src="assets/images/morgana.jpg" class="morgana" alt="Morgana" class="width-100">
                             </div>
                         </div>
-                        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 no-padding display-table md-margin-five-top sm-text-center xs-no-margin-top wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn; height: 398px;">
-                            <div class="display-table-cell vertical-align-middle padding-twelve-lr md-padding-15px-lr xs-text-center xs-padding-five-lr xs-padding-ten-top width-100">
+                        <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 no-padding display-table sm-text-center xs-no-margin-top wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn; height: 300px;">
+                            <div class="display-table-cell vertical-align-middle padding-twelve-lr md-padding-15px-lr xs-text-center md-no-padding-tb padding-30px-tb xs-padding-five-lr xs-padding-ten-top width-100">
                                 <h4 class="font-weight-600 alt-font text-extra-dark-gray letter-spacing-minus-1">Profissional</h4>
                                 <p class="text-extra-large alt-font font-weight-400">CRP 07/24616</p>
                                 <p>Mestranda em Psicologia/UCS. <br>
@@ -424,7 +424,7 @@ $posts = Post::getAll(' LIMIT 3', FALSE, FALSE);
                             <i class="icon-chat icon-medium margin-25px-bottom xs-margin-10px-bottom"></i>
                             <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">Contatos</div>
                             <p class="width-70 md-width-85 sm-width-50 xs-width-60 xs-margin-10px-bottom center-col">Whatsapp: <a href="https://api.whatsapp.com/send?l=pt_BR&phone=+5554996732039" target="_blank">(54) 99673.2039</a> <br>
-                                <a href="mailto:selecao@morganaburatti.com.br">selecao@morganaburatti.com.br</a> </p>
+                                <a href="mailto:morganaburatti@hotmail.com">morganaburatti@hotmail.com</a> </p>
                             <a href="tel:54996732039" class="margin-15px-top text-decoration-line-through-deep-pink display-inline-block text-uppercase text-chocolate text-small xs-no-margin-top">Ligar</a>
                         </div>
                     </div>

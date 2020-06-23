@@ -307,6 +307,10 @@ Table of contents
         margin: 0 auto;
     }
 
+    .morgana{
+        max-height: 400px;
+    }
+
     .center-col {float:none; margin-left:auto; margin-right:auto }
     section {padding: 130px 0; overflow: hidden;}
     section.big-section {padding:160px 0;}
